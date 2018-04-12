@@ -3,41 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Cat Clicker</title>
+    <meta name ='viewport' content = 'width = device-width, initial-scale = 1.0'>
+    <link rel = 'shortcut icon' href = 'img/cat_picture4.jpeg'>
+    <link rel = 'stylesheet' type='text/css' href='css/style.css'>
 </head>
-<body>
-	<div id="catlist">
-		<button id='button1'>cat 1</button>
-		<button id='button2'>cat 2</button>
-		<button id='button3'>cat 3</button>
-		<button id='button4'>cat 4</button>
-		<button id='button5'>cat 5</button>
-	</div>
-	<div class="cat" id="cat1">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="cat_picture1.jpg">
-   	</div>
-   	<div class="cat" id="cat2">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="cat_picture2.jpeg">
-   	</div>
-   	<div class="cat" id="cat3">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="cat_picture3.jpeg">
-   	</div>
-   	<div class="cat" id="cat4">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="cat_picture4.jpeg">
-   	</div>
-   	<div class="cat" id="cat5">
-		<span class="counter">0</span> clicks
-		<br>
-   		<img class="clicker" src="cat_picture5.jpeg">
-   	</div>
-</body>
+	<body>
+		<header>
+			<h1><b>Jeremy's Cat Clicker</b></h1>
+			<h3>Click on the cat's name to display the cat's image</h3>
+		</header>
+			<section class = 'cat'>
+				<div class = 'cats-container'>
+					<h2 class = 'generic'>List of Cats</h2>
+					<ul class = 'cat-list generic'></ul>
+					<button type='button' class = 'admin-button button' >Admin</button>
+					<form class = 'admin-form'>
+						<p class = 'generic'>Name:</p>
+						<input type='text' class ='name-input' value=''>
+						<p class = 'generic'>ImgURL:</p>
+						<input type='text' class ='imgurl-input' value=''>
+						<p class = 'generic'>#Clicks:</p>
+						<input type ='text' class ='clicks-input' value=''>
+						</p>
+						<button type = 'button' class = 'save-button button' >Save</button>
+						<button type = 'button' class = 'cancel-button button' >Cancel</button>
+					</form>
+				</div>
+			</section>
+			<section class = 'cat-selected'>
+				<div class = 'cat'>
+					<h2 class = 'cat-name generic'></h2>
+					<h2 class ='cat-count generic'></h2>
+					<img class = 'cat-img' src = '' alt = 'cat placeholder'>
+				</div>
+			</section>
+		<script src = 'js/app.js'></script>
+	</body>
 </html>
-<script src="jquery.js"></script>
-<script src="app.js"></script>
