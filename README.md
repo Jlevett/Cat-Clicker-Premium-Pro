@@ -17,7 +17,9 @@ Note: You can change the cat image by pasting the url of the image in the input 
 ## More
 The JavaScript was written within a MVC (Model, View, Controller) architecture.
 The variables and functions within the model and view objects communicate with each other via the "octopus" object.
-
 The "octopus" object is the controller in the MVC architecture.
 
+Local Storage was used.
+
 Responsive design was incorporated into the css
+

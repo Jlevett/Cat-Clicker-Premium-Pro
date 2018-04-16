@@ -3,7 +3,9 @@
 	/*====Modal====*/
 	var modal = {
 		currentCat: null,
+
 		adminView: false,
+
 		cats: [
 			{
 				clickCount: 0,
@@ -30,15 +32,32 @@
 				name: 'Waffle',
 				imgSrc: 'img/cat_picture5.jpeg'
 			}
-			]
+			],
+
+		init : function(){
+			//If not local Storage
+			if(localStorage.length === 0) {
+				//Add cats object to a JSON string, as localstorage only works with values.
+				localStorage.setItem('cats', JSON.stringify(modal.cats));
+			} else {
+				//cats object is set from the local storage which transforms the JSON string to the object
+				modal.cats = JSON.parse(localStorage.getItem('cats'));
+			}
+			//add an event listener which is 'fired' when the document is closed.
+			window.addEventListener('beforeunload',
+				//Add cats object to a JSON string, as localstorage only works with values.
+				() => localStorage.setItem('cats',JSON.stringify(modal.cats))
+			);
+			//set current cat to the first cat.
+			modal.currentCat = modal.cats[0];
+		}
 	};
 
 	/*====Octopus====*/
 	var octopus = {
 		init : function(){
-			//Set current cat to first one on the list
-			modal.currentCat = modal.cats[0];
 			//Tell views to initialize
+			modal.init();
 			catListView.init();
 			catDetailedView.init();
 			formView.init();
@@ -136,9 +155,7 @@
 			this.catCountElement = document.querySelector('.cat-count');
 			this.catImgElement  = document.querySelector('.cat-img');
 			//on click incriment the current cats counter
-			this.catImgElement.addEventListener('click', function(){
-				octopus.incrementCounter();
-			});
+			this.catImgElement.addEventListener('click',() => octopus.incrementCounter());
 			//render this view
 			this.render();
 		},
@@ -194,9 +211,7 @@
 			this.cancelButton.addEventListener('click', this.closeForm.bind(this));
 
 			//If save button is pressed form data to the cat selected and updates the cat.
-			this.saveButton.addEventListener('click', function(){
-				octopus.saveCurrentCat();
-			});
+			this.saveButton.addEventListener('click', () => octopus.saveCurrentCat());
 			this.render();
 		},
 

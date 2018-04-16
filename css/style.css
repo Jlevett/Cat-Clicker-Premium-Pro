@@ -53,8 +53,9 @@ h3 {
 	color:#7F07AC;
 }
 
-.cat-list:hover {
+li:hover {
 	cursor: pointer;
+	color:#C342FF
 }
 
 .cat-img {
