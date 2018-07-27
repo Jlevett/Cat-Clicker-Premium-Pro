@@ -10,27 +10,27 @@
 			{
 				clickCount: 0,
 				name: 'Fluff',
-				imgSrc: 'img/cat_picture1.jpg'
+				imgSrc: './img/cat_picture1.jpg'
 			},
 			{
 				clickCount: 0,
 				name: 'Silky',
-				imgSrc: 'img/cat_picture2.jpeg'
+				imgSrc: './img/cat_picture2.jpeg'
 			},
 			{
 				clickCount: 0,
 				name: 'Taco',
-				imgSrc: 'img/cat_picture3.jpeg'
+				imgSrc: './img/cat_picture3.jpeg'
 			},
 			{
 				clickCount: 0,
 				name: 'Melly',
-				imgSrc: 'img/cat_picture4.jpeg'
+				imgSrc: './img/cat_picture4.jpeg'
 			},
 			{
 				clickCount: 0,
 				name: 'Waffle',
-				imgSrc: 'img/cat_picture5.jpeg'
+				imgSrc: './img/cat_picture5.jpeg'
 			}
 			],
 
@@ -38,18 +38,18 @@
 			//If not local Storage
 			if(localStorage.length === 0) {
 				//Add cats object to a JSON string, as localstorage only works with values.
-				localStorage.setItem('cats', JSON.stringify(modal.cats));
+				localStorage.setItem('cats', JSON.stringify(this.cats));
 			} else {
 				//cats object is set from the local storage which transforms the JSON string to the object
-				modal.cats = JSON.parse(localStorage.getItem('cats'));
+				this.cats = JSON.parse(localStorage.getItem('cats'));
 			}
 			//add an event listener which is 'fired' when the document is closed.
 			window.addEventListener('beforeunload',
 				//Add cats object to a JSON string, as localstorage only works with values.
-				() => localStorage.setItem('cats',JSON.stringify(modal.cats))
+				() => localStorage.setItem('cats',JSON.stringify(this.cats))
 			);
 			//set current cat to the first cat.
-			modal.currentCat = modal.cats[0];
+			this.currentCat = this.cats[0];
 		}
 	};
 
